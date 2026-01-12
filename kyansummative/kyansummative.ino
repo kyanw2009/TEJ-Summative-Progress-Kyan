@@ -17,6 +17,9 @@ long duration;
 int distance;
 int soundValue;
 
+const int distanceThreshold = 10; //10 cm for alert
+const int soundThreshold    = 100; //sound to trigger alert
+
 void setup() {
   Serial.begin(9600);
 
@@ -46,6 +49,25 @@ void loop() {
     return; //do nothing until button is pressed
   }
   setColor(0, 255, 0); //System color light turns green meaning system is active
+
+  // Reading ultrasonic sensor
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  duration = pulseIn(echoPin, HIGH);
+  distance = duration * 0.034 / 2;
+
+  //Read sound sensor
+  soundValue = analogRead(soundPin);
+
+  //Serial print
+  Serial.print(distance);
+  Serial.print(soundValue);
+
 
 
 
