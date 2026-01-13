@@ -68,7 +68,22 @@ void loop() {
   Serial.print(distance);
   Serial.print(soundValue);
 
+  //Alert Conditions
+  //OR Condition
+  if (distance <= distanceThreshold || soundValue >= soundThreshold) { 
+    setColor(255, 0, 0);   //Red
+    digitalWrite(buzzerPin, HIGH);
+  }
+  else {
+    digitalWrite(buzzerPin, LOW);
+  }
 
+  delay(200);
+}
 
-
+//RGB LED function
+void setColor(int red, int green, int blue) {
+  analogWrite(redPin, red);
+  analogWrite(greenPin, green);
+  analogWrite(bluePin, blue);
 }
