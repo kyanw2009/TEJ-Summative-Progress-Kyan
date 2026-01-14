@@ -65,7 +65,9 @@ void loop() {
   soundValue = analogRead(soundPin);
 
   //Serial print
+  Serial.print("Distance in cm: ");
   Serial.print(distance);
+  Serial.print("Sound Level: ");
   Serial.print(soundValue);
 
   //Alert Conditions
