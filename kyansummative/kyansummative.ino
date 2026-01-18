@@ -1,3 +1,4 @@
+// Define Pins
 const int buttonPin = 2;
 
 const int trigPin = 3;
@@ -11,6 +12,7 @@ const int bluePin  = 11;
 
 const int buzzerPin = 12;
 
+// Variables
 bool systemOn = false;
 
 long duration;
