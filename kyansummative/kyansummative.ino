@@ -43,7 +43,7 @@ void setup() {
 void loop() {
 
   //Button turns system on manually ensuring no false starts
-  if (!systemon) {
+  if (!systemOn) {
     if (digitalRead(buttonPin) == LOW) {
       systemOn = true;
       delay(500);
